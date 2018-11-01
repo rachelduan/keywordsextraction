@@ -74,14 +74,14 @@ class TextRank():
 
 
 
-data = pd.read_excel('qa_20181030.xlsx')['query']
+data = pd.read_excel('../qa_20181030.xlsx')['query']
 print(data.head())
 jieba.load_userdict('my_dict')
 textrank_keys = []
 for line in data:
 	rank = TextRank(line, 1, 0.85, 'stopwords.txt')
 	textrank_keys.append(' '.join(rank.keywords_textrank()))
-pd.DataFrame({'text_rank_keywords':textrank_keys}).to_csv('text_rank_keywords.csv')
+pd.DataFrame({'text_rank_keywords':textrank_keys}).to_csv('../text_rank_keywords.csv')
 
 
 

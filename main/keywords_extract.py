@@ -6,7 +6,7 @@ import jieba.posseg
 from sklearn.feature_extraction.text import TfidfVectorizer
 
 
-data = pd.read_excel('qa_20181030.xlsx')['query']
+data = pd.read_excel('../qa_20181030.xlsx')['query']
 print(data.head())
 
 jieba.load_userdict('my_dict')
@@ -76,9 +76,9 @@ jieba_pos = pd.DataFrame({'jieba_pos':jieba_posseg})
 """
 简单无向图textrank实现
 """
-self_textrank_analyse = pd.read_csv('text_rank_keywords.csv')
+self_textrank_analyse = pd.read_csv('../text_rank_keywords.csv')
 
-pd.concat([data, jieba_pos, jieba_analyse, tfidf_analyse, textrank_analyse, self_textrank_analyse], axis = 1).to_csv('keywords_extraction.csv')
+pd.concat([data, jieba_pos, jieba_analyse, tfidf_analyse, textrank_analyse, self_textrank_analyse], axis = 1).to_csv('../keywords_extraction.csv')
 
 
 
